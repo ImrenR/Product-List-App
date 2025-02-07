@@ -1,0 +1,62 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+
+.product-list{
+  @include flex(row, center,1rem,center);
+  
+  margin: 1rem;
+  
+  
+  
+  .card{
+    width: 350px;
+    height: $cardHeight;
+    position: relative;
+    //overflow: hidden;
+     .price {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $cardColor;
+      padding: $cardPadding;
+      font-size: 0.9rem;
+      border-radius: $borderRadius;
+     }
+     &_over{
+      position: absolute;
+      width: 100%;
+      z-index: 3;
+      bottom:0;
+      background-color: $cardBgColor;
+      color: darken($cardColor, 50%);
+      font-size: 1.2rem;
+      padding: $cardPadding;
+      border-radius: $borderRadius;
+      transform: translateX(100%);
+      transition: all 1s;
+      height: 25%;
+      overflow: auto;
+
+       &::-webkit-scrollbar{
+        display: none;
+      }
+     }
+      &:hover .card_over {
+        transform: translateX(0%);
+      }
+    
+
+       &:hover img{
+        filter:none ;
+    }
+  }
+
+  img{
+    width: 100%;
+    height: $cardHeight;
+    border-radius: $borderRadius;
+    filter: sepia(1);
+    }
+}
